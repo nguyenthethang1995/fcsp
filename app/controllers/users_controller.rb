@@ -41,6 +41,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @info_user = current_user.info_user
+  end
+
   def update
     if current_user.update_attributes "#{params[:type]}": params[:input_info_user]
       user_attribute = User.pluck_params_type params[:id], params[:type]
@@ -57,7 +61,7 @@ class UsersController < ApplicationController
     else
       flash[:error] = t ".auto_synchronize_error"
     end
-    redirect_to current_user
+    redirect_to setting_root_path
   end
 
   def follow

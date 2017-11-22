@@ -21,7 +21,7 @@ $(document).ready(function() {
     $(this).addClass('orange-text');
     name = $(this).attr('data-row-id');
     id = '#' + name;
-    top = $(id).first().offset().top - 60;
+    top = $(id).first().offset().top - 100;
     $('html, body').animate({scrollTop: top + 'px'}, 300);
   });
 
@@ -46,7 +46,7 @@ $(document).ready(function() {
     $(this).closest('.collapse').find('.form-control').val(value);
   });
 
-  $('.submit-edit').on('click', function(e) {
+  $('.submit-edit-ajax').on('click', function(e) {
     e.preventDefault();
     var input_info_user, type, url;
     type = $(this).closest('.collapse').attr('id').replace('edit-', '');

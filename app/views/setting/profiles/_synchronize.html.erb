@@ -1,0 +1,41 @@
+<div class="col_full">
+  <a href="#edit-synchronize" class="edit-toggle" data-toggle="collapse">
+    <h4 class="orange-text"><%= t ".synchronize" %></h4>
+    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+  </a>
+  <div id="edit-synchronize" class="collapse">
+    <span>
+      <%= t "setting.profiles.if_you_dont_want" %>
+    </span>
+    <div class="div-synchronize-setting">
+      <div class="col-md-9-edit-synchronize">
+        <%= t ".all_data_sync_now" %>
+      </div>
+      <div class="col-md-3-edit-synchronize">
+        <%= tms_synchronize_button %>
+      </div>
+    </div>
+    <%= form_tag update_auto_synchronize_user_path(current_user.id), method: :PATCH do %>
+      <%= hidden_field_tag :auto_synchronize, false %>
+      <div class="div-synchronize-setting">
+        <div class="col-md-9-edit-synchronize">
+          <%= t ".all_data_auto_sync" %>
+        </div>
+        <div class="col-md-3-edit-synchronize">
+          <label class="switch" id="auto_sync">
+            <%= check_box_tag :auto_synchronize, true, current_user.auto_synchronize %>
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+      <div class="button-group-edit">
+        <button type="button" class="btn btn-default cancel-edit">
+          <%= t ".cancel" %>
+        </button>
+        <button type="submit" class="btn btn-primary submit-edit">
+          <%= t ".submit" %>
+        </button>
+      </div>
+    <% end %>
+  </div>
+</div>

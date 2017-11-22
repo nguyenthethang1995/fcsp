@@ -1,197 +1,215 @@
 <div class="col_full">
+  <a href="#edit-name" class="edit-toggle" data-toggle="collapse">
+    <span class="orange-text"><%= t ".fullname" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
+  </a>
+  <div class="black-text" id="name"><%= current_user.name %></div>
+  <div id="edit-name" class="collapse">
+    <span>
+      <%= t ".if_you_dont_want" %>
+    </span>
+    <%= form_for current_user, url: user_path(current_user),
+      method: :patch do |f| %>
+      <%= f.text_field :name, class: "form-control" %>
+      <%= render "shared/button_group" %>
+    <% end %>
+  </div>
+</div>
+
+<div class="col_full">
   <a href="#edit-phone" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".phone" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".phone" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="phone"><%= @info_user.phone %></div>
   <div id="edit-phone" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.text_field :phone, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-gender" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".gender" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".gender" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="gender"><%= @info_user.gender %></div>
   <div id="edit-gender" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.select :gender, select_info_user_gender, {}, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-birthday" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".birthday" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".birthday" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="birthday">
     <%= @info_user.birthday ? l(@info_user.birthday) : @info_user.birthday %>
   </div>
   <div id="edit-birthday" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.date_field :birthday, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-occupation" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".occupation" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".occupation" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="occupation"><%= @info_user.occupation %></div>
   <div id="edit-occupation" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.text_field :occupation, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-relationship_status" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".relationship" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".relationship" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="relationship_status">
     <%= @info_user.relationship_status %>
   </div>
   <div id="edit-relationship_status" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.select :relationship_status,
         select_info_user_relationship_status, {}, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-introduce" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".self_introduction" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".self_introduction" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="introduce">
     <%= @info_user.introduce %>
   </div>
   <div id="edit-introduce" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
-      <%= f.text_area :introduce, rows: Settings.setting.profiles.detail_information.textarea_rows,
+      <%= f.text_area :introduce, rows: Settings.personal_information.textarea_rows,
         class: "form-control text-area-edit" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-quote" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".quote" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".quote" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="quote">
     <%= @info_user.quote %>
   </div>
   <div id="edit-quote" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
-      <%= f.text_area :quote, rows: Settings.setting.profiles.detail_information.textarea_rows,
+      <%= f.text_area :quote, rows: Settings.personal_information.textarea_rows,
         class: "form-control text-area-edit" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-ambition" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".ambition" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".ambition" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="ambition">
     <%= @info_user.ambition %>
   </div>
   <div id="edit-ambition" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
-      <%= f.text_area :ambition, rows: Settings.setting.profiles.detail_information.textarea_rows,
+      <%= f.text_area :ambition, rows: Settings.personal_information.textarea_rows,
         class: "form-control text-area-edit" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-address" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".address" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".address" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="address">
     <%= @info_user.address %>
   </div>
   <div id="edit-address" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.text_field :address, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>
 
 <div class="col_full">
   <a href="#edit-country" class="edit-toggle" data-toggle="collapse">
-    <h4 class="orange-text"><%= t ".country" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="orange-text"><%= t ".country" %></span>
+    <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
   <div class="black-text" id="country">
     <%= @info_user.country %>
   </div>
   <div id="edit-country" class="collapse">
     <span>
-      <%= t "setting.profiles.if_you_dont_want" %>
+      <%= t ".if_you_dont_want" %>
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.text_field :country, class: "form-control" %>
-      <%= render "setting/shared/button_group" %>
+      <%= render "shared/button_group" %>
     <% end %>
   </div>
 </div>

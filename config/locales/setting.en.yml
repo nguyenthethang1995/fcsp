@@ -1,0 +1,13 @@
+en:
+  setting:
+    profiles:
+      update_success: "Profile updated"
+      synchronize:
+        refresh: "Refresh"
+        refresh_now: "Refresh now"
+        want_to_sync: "Do you want to auto synchronize data ?"
+        cancel: "Cancel"
+        submit: "Submit"
+        all_data_sync_now: "All your data will be synchronized with TMS system immediately when you click this button"
+        all_data_auto_sync: "All your data wil be auto synchronized with TMS system everyday when you click this button"
+        synchronize: "Synchronize"

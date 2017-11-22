@@ -40,7 +40,7 @@ hr.hr-edit-user {
 .top-right-edit {
   position: absolute;
   right: 0;
-  top: 20px;
+  top: 10px;
 }
 
 .button-group-edit {
@@ -94,6 +94,8 @@ hr.hr-edit-user {
 
 .orange-text {
   color: $orange;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 
 .black-text {
@@ -103,4 +105,28 @@ hr.hr-edit-user {
 
 textarea.text-area-edit {
   resize: none;
+}
+
+.col-md-9-edit-synchronize {
+  float: left;
+  width: 80%;
+}
+
+.col-md-3-edit-synchronize {
+  float: right;
+  width: 20%;
+}
+
+.synchronize-button {
+  float: right;
+}
+
+.div-synchronize-setting {
+  display: inline-block;
+  margin: 10px 0 10px;
+}
+
+#auto_sync {
+  float: right;
+  top: 0;
 }

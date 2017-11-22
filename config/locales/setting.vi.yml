@@ -1,0 +1,13 @@
+vi:
+  setting:
+    profiles:
+      update_success: "Hồ sơ đã được cập nhật"
+      synchronize:
+        refresh: "Đồng bộ hóa dữ liệu"
+        refresh_now: "Đồng bộ hóa dữ liệu ngay"
+        want_to_sync: "Bạn có muốn dữ liệu được đồng bộ hóa tự động ?"
+        cancel: "Hủy bỏ"
+        submit: "Xác nhận"
+        all_data_sync_now: "Tất cả dữ liệu của bạn sẽ được đồng bộ hóa ngay lập tức với hệ thống TMS nếu bạn bấm vào nút này"
+        all_data_auto_sync: "Tất cả dữ liệu của bạn sẽ được tự động đồng bộ hóa hàng ngày với hệ thống TMS nếu bạn bấm vào nút này"
+        synchronize: "Đồng bộ hóa"

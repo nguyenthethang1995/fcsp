@@ -244,6 +244,9 @@ jp:
       title: "Home"
   title: "Framgia code school platform"
   users:
+    update_auto_synchronize:
+      auto_synchronize_success: "自動同期状態の変更を成功させる"
+      auto_synchronize_error: "自動同期ステータスを変更することはできません"
     social_network:
       quote: "見積もり"
       address: "住所"
@@ -269,36 +272,7 @@ jp:
   conversations:
     conversation:
       send: "送る"
-  setting:
-    layouts:
-      setting_header:
-        edit_profile: "プロファイル編集"
-    profiles:
-      click_to_change: "クリックして変更する"
-      if_you_dont_want: "変更しない場合は、[キャンセル]をクリックします"
-      update_success: "プロフィール更新"
-      index:
-        something_wrong: "何かが間違っていた。 再度確認してください！"
-      left_navigation_col:
-        basic_information: "基本情報"
-        detail_information: "詳細情報"
-      update_information:
-        basic_information: "基本情報"
-        detail_information: "詳細情報"
-      basic_information:
-        username: "ユーザー名"
-      detail_information:
-        phone: "電話"
-        gender: "性別"
-        birthday: "お誕生日"
-        occupation: "職業"
-        relationship: "関係の状態"
-        self_introduction: "紹介する"
-        quote: "見積もり"
-        ambition: "野心"
-        address: "住所"
-        country: "国"
-    shared:
+  shared:
       button_group:
         cancel: "キャンセル"
         submit: "提出する"

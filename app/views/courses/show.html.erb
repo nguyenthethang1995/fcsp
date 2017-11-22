@@ -1,4 +1,4 @@
-<%= render "users/header", user: @user, user_object: @user_object %>
+<%= render "shared/avatar_cover_image", user: @user %>
 <section>
   <div class="container">
     <div class="row">
@@ -23,7 +23,6 @@
       </div>
       <div class="col-md-3">
         <article class="post show-tab-user">
-          <%= publish_info_button %>
           <%= render "users/social_network", user: @user, info_user: @info_user %>
         </article>
       </div>

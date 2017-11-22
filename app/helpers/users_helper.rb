@@ -76,14 +76,7 @@ module UsersHelper
 
   def tms_synchronize_button
     if cookies.signed[:tms_user]
-      link_to t(".refresh"), tms_synchronize_index_path, class: "btn btn-default"
-    end
-  end
-
-  def publish_info_button
-    if current_user == @user
-      link_to check_permission_profile ? t(".private_profile") : t(".public_profile"),
-        info_users_path, class: "btn btn-default"
+      link_to t(".refresh"), tms_synchronize_index_path, class: "btn btn-default synchronize-button"
     end
   end
 

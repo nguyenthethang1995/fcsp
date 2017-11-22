@@ -283,7 +283,5 @@ share_type: "Post"
 shared_post:
   content_max: 255
 setting_page: "http://localhost:3000/setting"
-setting:
-  profiles:
-    detail_information:
-      textarea_rows: 5
+personal_information:
+  textarea_rows: 5

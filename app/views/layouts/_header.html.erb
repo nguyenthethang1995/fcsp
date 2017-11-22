@@ -48,9 +48,6 @@
         <% end %>
       </ul>
       <div class="i-con sign-in">
-        <% if user_signed_in? %>
-          <i class="fa fa-refresh" data-toggle="modal" data-target="#sync"></i>
-        <% end %>
         <span class="dropdown profile" id="none-responsive">
           <% if user_signed_in? %>
             <button class="dropdown-toggle" type="button" data-toggle="dropdown">
@@ -59,6 +56,7 @@
             </button>
             <ul class="dropdown-menu profile-box">
               <li><%= link_to t(".view_profile"), user_path(current_user) %></li>
+              <li><%= link_to t(".edit_profile"), edit_user_path(current_user) %></li>
               <li><%= link_to t(".settings"), setting_root_path %></li>
               <li>
                 <%= link_to t(".sign_out"), destroy_user_session_path,
@@ -78,7 +76,4 @@
     </div>
   </div>
 </nav>
-<% if user_signed_in? %>
-  <%= render "companies/modal_create_company" %>
-  <%= render "layouts/modal_sync" %>
-<% end %>
+<%= render "companies/modal_create_company" %>

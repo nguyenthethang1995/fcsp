@@ -1,0 +1,13 @@
+jp:
+  setting:
+    profiles:
+      update_success: "プロフィール更新"
+      synchronize:
+        refresh: "リフレッシュする"
+        refresh_now: "今更新する"
+        want_to_sync: "データを自動同期しますか？"
+        cancel: "キャンセル"
+        submit: "提出する"
+        all_data_sync_now: "このボタンをクリックすると、すぐにすべてのデータがTMSシステムと同期されます"
+        all_data_auto_sync: "このボタンを選択すると、毎日すべてのデータがTMSシステムと自動的に同期されます"
+        synchronize: "同期する"

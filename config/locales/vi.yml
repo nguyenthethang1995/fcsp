@@ -936,6 +936,9 @@ vi:
       public: "Công khai"
       user_work: "Công việc"
   users:
+    update_auto_synchronize:
+      auto_synchronize_success: "Chuyển trạng thái tự động đồng bộ thành công"
+      auto_synchronize_error: "Không thể chuyển trạng thái tự động đồng bộ"
     album_image:
       no_image: "Không có hình ảnh nào"
     change_avatar:
@@ -1064,38 +1067,7 @@ vi:
   conversations:
     conversation:
       send: "Gửi"
-  setting:
-    layouts:
-      setting_header:
-        edit_profile: "Edit profile"
-    profiles:
-      click_to_change: "Bấm vào để thay đổi"
-      if_you_dont_want: "Nếu bạn không muốn thay đổi, bâm vào nút hủy bỏ"
-      update_success: "Hồ sơ đã được cập nhật"
-      index:
-        something_wrong: "Có lỗi đã xảy ra. Làm ơn kiểm tra lại!"
-      left_navigation_col:
-        basic_information: "Thông tin cơ bản"
-        detail_information: "Thông tin chi tiết"
-      update_information:
-        basic_information: "Thông tin cơ bản"
-        detail_information: "Thông tin chi tiết"
-      basic_information:
-        email_address: "Địa chỉ email"
-        username: "Tên người dùng"
-        password: "Mật khẩu"
-      detail_information:
-        phone: "Số điện thoại"
-        gender: "Giới tính"
-        birthday: "Ngày sinh"
-        occupation: "Nghề nghiệp"
-        relationship: "Tình trạng quan hệ"
-        self_introduction: "Giới thiệu bản thân"
-        quote: "Trích dẫn"
-        ambition: "Tham vọng"
-        address: "Địa chỉ"
-        country: "Quốc gia"
-    shared:
-      button_group:
+  shared:
+    button_group:
         cancel: "Hủy bỏ"
         submit: "Xác nhận"

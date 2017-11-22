@@ -46,7 +46,7 @@
     </div>
   </div>
 </div>
-<% if request.original_url == Settings.seting_page %>
+<% if request.original_url == Settings.setting_page %>
   <%= render "users/change_avatar", user: user %>
   <%= render "users/change_cover", user: user %>
 <% else %>
