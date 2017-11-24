@@ -56,3 +56,4 @@
 //= require_tree ./channels
 //= require setting/profile
 //= require setting/share_profiles
+//= require dataTables/jquery.dataTables

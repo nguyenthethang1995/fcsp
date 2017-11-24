@@ -279,6 +279,20 @@ $(document).ready(function(){
     });
   });
   action_candidate.initialize();
+
+  $('#trainee-data-table').DataTable( {
+    'order': [[1, 'asc']],
+    'columnDefs': [
+      {
+        'targets': 0,
+        'orderable': false
+      },
+      {
+        'targets': 5,
+        'orderable': false
+      }
+    ]
+  });
 });
 
 var action_candidate = {

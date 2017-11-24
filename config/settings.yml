@@ -282,6 +282,6 @@ level_range: 50
 share_type: "Post"
 shared_post:
   content_max: 255
-setting_page: "http://localhost:3000/setting"
+edit_profile_page: "http://localhost:3000/users/params[:id]/edit"
 personal_information:
   textarea_rows: 5

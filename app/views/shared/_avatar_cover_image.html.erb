@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <article class="show-header-user post header-avatar-edit">
         <div class="cover-image">
-          <% if request.original_url == Settings.setting_page %>
+          <% if request.original_url == Settings.edit_profile_page %>
             <div class="ico-upload-cover" data-toggle="modal"
               data-target="#changeCoverModal">
               <%= icon "camera" %>
@@ -15,22 +15,20 @@
         <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
           data-target="#changeAvatarModal">
           <%= load_user_avatar user, class: "img-avatar" %>
-          <% if request.original_url == Settings.setting_page %>
+          <% if request.original_url == Settings.edit_profile_page %>
             <div class="icon-upload-avatar">
               <h3 class="glyphicon glyphicon-camera"></h3>
             </div>
           <% end %>
         </a>
-        <% if request.original_url != Settings.setting_page %>
+        <% if request.original_url != Settings.edit_profile_page %>
           <span class="site-name"><b><%= user.name %></b></span>
           <span class="occupation">
             <i class="fa fa-briefcase"></i>
             <%= user.info_user_occupation %>
           </span>
-        <% end %>
-        <% if request.original_url == Settings.setting_page %>
-          <div class="request-user">
-            <% if !user.is_user?(current_user) && user_signed_in?  %>
+          <% if !user.is_user?(current_user) && user_signed_in?  %>
+            <div class="request-user">
               <div class="follow-user btn btn-default message-button">
                 <%= render "follow_user", user: user %>
               </div>
@@ -39,14 +37,14 @@
                 <%= link_to t(".message"), conversations_path(user_id: user),
                   remote: true, method: :post %>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% end %>
       </article>
     </div>
   </div>
 </div>
-<% if request.original_url == Settings.setting_page %>
+<% if request.original_url == Settings.edit_profile_page %>
   <%= render "users/change_avatar", user: user %>
   <%= render "users/change_cover", user: user %>
 <% else %>

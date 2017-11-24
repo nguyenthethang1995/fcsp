@@ -26,20 +26,14 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <div class="table-container">
-                <table class="table">
+                <table class="table" id="trainee-data-table">
                   <thead>
                     <tr class="headings">
                       <th class="col-avatar"></th>
                       <th class="column-title col-traineename">
-                        <span class="filter-traineename">
-                          <%= render "filter_name" %>
-                        </span>
                         <%= t ".name" %>
                       </th>
                       <th class="column-title col-dob">
-                        <span class="filter-dob">
-                          <%= render "filter_birthday" %>
-                        </span>
                         <%= t ".birthday" %>
                       </th>
                       <th class="column-title col-occupation">
@@ -67,9 +61,6 @@
                     <% end %>
                   </tbody>
                 </table>
-                <div class="pagination-bar">
-                  <%= render "paginate", trainee: @trainees %>
-                </div>
               </div>
             </div>
           </div>
