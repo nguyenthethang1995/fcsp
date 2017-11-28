@@ -28,9 +28,11 @@ $(document).ready(function() {
   var previous_id, previous_value, value;
 
   $('.edit-toggle').on('click', function(e) {
-    var id, black_text;
-    $('.collapse').removeClass('in');
+    var id, black_text, data_target;
+    $('.collapse').css('display', 'none');
+    data_target = $(this).attr('data-target');
     $('.black-text').removeClass('hidden');
+    $(this).parent().children('#' + data_target).toggle('slow');
     black_text = $(this).parent().children('.black-text');
     black_text.addClass('hidden');
     value = black_text.html();
@@ -41,7 +43,7 @@ $(document).ready(function() {
   });
 
   $('.cancel-edit').on('click', function() {
-    $('.collapse').removeClass('in');
+    $('.collapse').css('display', 'none');
     $('.black-text').removeClass('hidden');
     $(this).closest('.collapse').find('.form-control').val(value);
   });
@@ -61,13 +63,13 @@ $(document).ready(function() {
     .done(function(data) {
       if (data.info_status == 'success') {
         $('#' + type).html(data.html);
-        $('.collapse').removeClass('in');
+        $('.collapse').css('display', 'none');
         $('.black-text').removeClass('hidden');
         $.growl.notice({message: I18n.t('setting.profiles.update_success')});
         previous_value = $('#' + type).html();
       } else {
         $.growl.error({message: data.message});
-        $('.collapse').removeClass('in');
+        $('.collapse').css('display', 'none');
         $('.black-text').removeClass('hidden');
         previous_value = $('#' + type).html();
       }

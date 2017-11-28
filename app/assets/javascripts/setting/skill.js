@@ -1,7 +1,7 @@
 $(document).ready(function(){
-  $('body').on('click', '.edit-toggle', function(){
-    $(this).closest('.col_full').find('.create-form').toggle('slow');
-  });
+  // $('body').on('click', '.edit-toggle', function(){
+  //   $(this).closest('.col_full').find('.create-form').toggle('slow');
+  // });
 
   $('body').on('click', '.edit-form .cancel', function(){
     $(this).closest('.edit-form').find('#skill_id').val('');

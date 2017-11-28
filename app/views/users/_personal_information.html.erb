@@ -1,5 +1,5 @@
 <div class="col_full">
-  <a href="#edit-name" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-name" >
     <span class="orange-text"><%= t ".fullname" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -17,16 +17,16 @@
 </div>
 
 <div class="col_full">
-  <a class="edit-toggle">
+  <a class="edit-toggle" data-target="create_skill" >
     <h3 class="orange-text"><%= t ".skill" %></h3>
     <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
   </a>
 
-  <div class="current-skills">
+  <div class="current-skills collapse">
     <%= render "skill", skills: @skills %>
   </div>
 
-  <div id="create_skill" class="edit-form create-form">
+  <div id="create_skill" class="edit-form create-form collapse">
     <%= form_for @skill, method: :post do |f| %>
       <div class="row">
         <div class="col-md-2"><%= t ".name" %></div>
@@ -57,7 +57,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-phone" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-phone" >
     <span class="orange-text"><%= t ".phone" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -75,7 +75,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-gender" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-gender" >
     <span class="orange-text"><%= t ".gender" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -93,7 +93,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-birthday" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-birthday" >
     <span class="orange-text"><%= t ".birthday" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -113,7 +113,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-occupation" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-occupation" >
     <span class="orange-text"><%= t ".occupation" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -131,7 +131,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-relationship_status" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-relationship_status" >
     <span class="orange-text"><%= t ".relationship" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -152,7 +152,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-introduction" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-introduction" >
     <span class="orange-text"><%= t ".self_introduction" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -174,7 +174,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-quote" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-quote" >
     <span class="orange-text"><%= t ".quote" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -195,7 +195,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-ambition" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-ambition" >
     <span class="orange-text"><%= t ".ambition" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -216,7 +216,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-address" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-address" >
     <span class="orange-text"><%= t ".address" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
@@ -236,7 +236,7 @@
 </div>
 
 <div class="col_full">
-  <a href="#edit-country" class="edit-toggle" data-toggle="collapse">
+  <a class="edit-toggle" data-target="edit-country" >
     <span class="orange-text"><%= t ".country" %></span>
     <span class="top-right-edit"><%= t ".click_to_change" %></span>
   </a>
