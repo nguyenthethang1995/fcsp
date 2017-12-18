@@ -4,5 +4,6 @@ FactoryBot.define do
     email{FFaker::Internet.email}
     password "password"
     password_confirmation "password"
+    auto_synchronize false
   end
 end
