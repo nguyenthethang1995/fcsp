@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :authenticate_tms
   before_action :is_employer?, only: %i(show follow unfollow)
-  load_resource only: %i(show follow unfollow)
+  load_and_authorize_resource
+  skip_authorization_check only: :show
   autocomplete :skill, :name, full: true
 
   def show

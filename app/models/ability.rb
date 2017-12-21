@@ -14,6 +14,10 @@ class Ability
       can :read, Company
       can :read, Job
       can :read, Candidate
+      can :manage, User, id: user.id
+      can :read, User
+      can :follow, User
+      can :unfollow, User
     end
     user.employer_groups.each do |group|
       get_permission_of_group_for_authentication group
