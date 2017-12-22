@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   autocomplete :skill, :name, full: true
 
   def show
-    user_shares = @user.user_shares.includes(:avatar)
-    user_following = @user.following_users.includes(:avatar)
+    user_shares = @user.user_shares.includes :avatar
+    user_following = @user.following_users.includes :avatar
     @users = {user_shares: user_shares,
       limit_user_shares: user_shares.take(Settings.user.limit_user),
       user_following: user_following,
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
       courses: @user.courses.includes(:programming_language)}
     @trainees = User.includes(:avatar, :info_user).trainee.page(params[:page])
       .per Settings.users.show.trainees_per_page
-
     if request.xhr?
       render json: {
         trainees: render_to_string(partial: "users/trainees", layout: false),
@@ -48,9 +47,9 @@ class UsersController < ApplicationController
 
   def update_auto_synchronize
     if current_user.update_attributes auto_synchronize: params[:auto_synchronize]
-      flash[:success] = t ".auto_synchronize_success"
+      flash[:success] = t "users.update.auto_synchronize_success"
     else
-      flash[:error] = t ".auto_synchronize_error"
+      flash[:error] = t "users.update.auto_synchronize_error"
     end
     redirect_to setting_root_path
   end
