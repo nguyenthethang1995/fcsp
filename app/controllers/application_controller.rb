@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
   include ApplicationHelper
   include PublicActivity::StoreController
 
-  rescue_from ActiveRecord::RecordNotFound, with: :not_found
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    flash[:alert] = t("model_not_found", model: exception.model)
+    redirect_to root_path
+  end
 
   rescue_from CanCan::AccessDenied do |exception|
     flash[:alert] = exception.message

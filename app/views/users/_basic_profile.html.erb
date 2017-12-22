@@ -46,7 +46,7 @@
     <% end %>
   </div>
 <% end %>
-<% if @users[:user_shares].present? && current_user.is_user?(user)%>
+<% if @users[:user_shares].present? %>
   <div class="fancy-title top-cart-item">
     <h4><%= t ".shared_for_user" %></h4>
   </div>

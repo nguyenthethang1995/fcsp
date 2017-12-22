@@ -1,0 +1,5 @@
+en:
+  courses:
+    show:
+      page_error: "Bạn không có quyền truy cập trang web này"
+  model_not_found: "Không tìm thấy %{model}"
