@@ -6,9 +6,11 @@ FactoryBot.define do
     phone FFaker::PhoneNumber.short_phone_number
     quote FFaker::Lorem.sentence
     ambition FFaker::Lorem.sentence
-    address FFaker::Address.city
+    address FFaker::AddressNL
     occupation FFaker::Job.title
-    gender "male"
+    country FFaker::Address.city
+    gender 0
+    is_public false
     user
   end
 end

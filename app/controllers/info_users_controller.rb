@@ -25,15 +25,10 @@ class InfoUsersController < ApplicationController
 
   private
 
-  def info_user_params
-    params.require(:info_user).permit :introduction, :ambition, :quote, :address,
-      :phone, :relationship_status, :gender, :birthday, :occupation, :country
-  end
-
   def find_info_user
     @info_user = current_user.info_user
     return if @info_user
-    flash[:danger] = t ".infor_user_not_found"
+    flash[:danger] = t ".info_user_not_found"
     redirect_to root_url
   end
 
@@ -41,18 +36,6 @@ class InfoUsersController < ApplicationController
     unless @info_user.update_attributes is_public: is_public
       flash[:danger] = t ".update_fail"
       redirect_to root_url
-    end
-  end
-
-  def update_info_status info_user
-    params[:info_statuses].each do |info, status|
-      if InfoUser::INFO_ATTRIBUTES.include?(info.to_sym) &&
-        InfoUser::INFO_STATUS.values.include?(status.to_i)
-        info_user.info_statuses[info.to_sym] = status.to_i
-        info_user.save
-      else
-        return false
-      end
     end
   end
 end
