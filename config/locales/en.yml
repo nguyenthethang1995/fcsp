@@ -430,7 +430,7 @@ en:
       quote_placeholder: "My quote..."
       update_button: "Update"
     find_info_user:
-      infor_user_not_found: "Infomation of user not found"
+      info_user_not_found: "Infomation of user not found"
     index:
       profile_private: "Your profile is private"
       profile_public: "Your profile is public"
