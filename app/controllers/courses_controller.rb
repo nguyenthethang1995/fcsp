@@ -1,7 +1,13 @@
 class CoursesController < ApplicationController
+  include CheckPermissionProfile
+
   before_action :authenticate_user!
   load_resource :user, id_param: :user_id, parent: false, only: :show
-  before_action :check_permission_profile, only: :show
+
+  before_action only: :show do
+    check_permission_profile @user
+  end
+
   load_resource through: :user, only: :show
 
   def show
@@ -17,18 +23,12 @@ class CoursesController < ApplicationController
     if request.xhr?
       render json: {
         status: :success,
-        html: render_to_string(partial: "courses/course_details",
-          locals: {user: @user, course: @course, subjects: @user_course_subjects},
-          layout: false)
+        html: render_to_string(
+          partial: "courses/course_details",
+          locals: {user: @user, course: @course,
+            subjects: @user_course_subjects}, layout: false
+        )
       }
     end
-  end
-
-  private
-
-  def check_permission_profile
-    return if @user.is_user?(current_user) || @user.share?(current_user)
-    flash[:alert] = t ".page_error"
-    redirect_to root_path
   end
 end
