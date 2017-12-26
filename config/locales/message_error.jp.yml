@@ -1,5 +1,3 @@
 jp:
-  courses:
-    show:
-      page_error: "あなたはこのページにアクセスする許可がありません"
+  page_error: "あなたはこのページにアクセスする許可がありません"
   model_not_found: "%{model} を見つかりません"

@@ -5,11 +5,6 @@
       <div class="col-md-9">
         <article class="post show-tab-user">
           <div class="clearfix">
-            <% if @user.is_user? current_user %>
-              <div class="clearfix hide-tab" id="tab-suggest-job">
-                <%= render "users/user_job", user: @user, user_object: @user_object %>
-              </div>
-            <% end %>
             <% if check_permission_profile ||
               @user.is_user?(current_user) || @user.share?(current_user) %>
               <div class="hide-tab active" id="tab-information">

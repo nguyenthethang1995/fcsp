@@ -1,7 +1,15 @@
 class SubjectsController < ApplicationController
+  include CheckPermissionProfile
+
   before_action :authenticate_user!
   load_resource :user, id_param: :user_id, parent: false, only: :show
-  load_resource :course, id_param: :course_id, through: :user, parent: false, only: :show
+
+  before_action only: :show do
+    check_permission_profile @user
+  end
+
+  load_resource :course, id_param: :course_id,
+    through: :user, parent: false, only: :show
   load_resource :user_course_subject, through: :user, parent: false, only: :show
 
   def show
@@ -20,7 +28,8 @@ class SubjectsController < ApplicationController
         html: render_to_string(
           partial: "subjects/subject_details",
           locals: {user: @user, course: @course, subject: @user_course_subject,
-            tasks: @user_tasks}, layout: false)
+            tasks: @user_tasks}, layout: false
+        )
       }
     end
   end
