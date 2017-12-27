@@ -4,7 +4,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="ModalLabel"><%= t ".choose_user" %>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close" data-dismiss="modal"
+            aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </h3>
@@ -29,14 +30,15 @@
                     </div>
                   </label>
                 </li>
-                <%= render partial: "setting/share_profiles/user", collection: users,
-                  locals: {users: users} %>
+                <%= render partial: "setting/share_profiles/user",
+                  collection: users, locals: {users: users} %>
               </ul>
             </div>
           </div>
         </div>
         <div class="footer-edit modal-footer">
-          <%= button_tag t(".cancel"), class: "btn btn-default", data: {dismiss: "modal"} %>
+          <%= button_tag t(".cancel"), class: "btn btn-default",
+            data: {dismiss: "modal"}, id: "cancel_share_profile" %>
           <%= submit_tag t(".save"), class: "btn btn-primary" %>
         </div>
       <% end %>
