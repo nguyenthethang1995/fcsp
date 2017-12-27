@@ -8,39 +8,6 @@
       <% end %>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav text-uppercase">
-        <li><%= link_to t(".home"), root_path, class: "link-menu-header" %></li>
-        <% if current_user %>
-          <% if current_user.admin? %>
-            <li>
-              <%= link_to t(".admin"), admin_dashboards_path,
-                class: "link-menu-header" %>
-            </li>
-          <% end %>
-          <% if current_user.employer? %>
-            <% if current_user.company %>
-              <li class="dropdown">
-                  <a href="#" class="dropdown-toggle text-center"
-                    data-toggle="dropdown">
-                    <%= t ".employer" %> <b class="caret"></b>
-                  </a>
-                  <ul class="dropdown-menu">
-                    <li>
-                      <%= link_to current_user.company.name,
-                        employer_company_dashboards_path(current_user.company) %>
-                    </li>
-                  </ul>
-              </li>
-            <% else %>
-              <li>
-                <a href="#" data-toggle="modal" data-target="#createCompany">
-                  <%= t ".create_company" %>
-                </a>
-              </li>
-            <% end %>
-          <% end %>
-        <% end %>
-      </ul>
       <div class="i-con sign-in">
         <span class="dropdown profile" id="none-responsive">
           <% if user_signed_in? %>
@@ -63,4 +30,3 @@
     </div>
   </div>
 </nav>
-<%= render "companies/modal_create_company" %>
