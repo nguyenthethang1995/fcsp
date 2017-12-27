@@ -10,17 +10,17 @@
           </div>
           <%= load_user_cover current_user, class: "img-cover" %>
         </div>
-        <a class="navbar-brand avatar-user" data-toggle="modal"
-          data-target="#changeAvatarModal">
+        <%= link_to "#", data: {toggle: "modal", target: "#changeAvatarModal"},
+          class: "navbar-brand avatar-user" do %>
           <%= load_user_avatar current_user, class: "img-avatar" %>
           <div class="icon-upload-avatar">
             <h3 class="glyphicon glyphicon-camera"></h3>
           </div>
-        </a>
-        <span class="site-name">
-          <strong>
-            <%= current_user.name %>
-          </strong>
+        <% end %>
+        <span class="site-name"><strong><%= current_user.name %></strong></span>
+        <span class="occupation">
+          <i class="fa fa-briefcase"></i>
+          <%= current_user.info_user_occupation %>
         </span>
       </article>
     </div>

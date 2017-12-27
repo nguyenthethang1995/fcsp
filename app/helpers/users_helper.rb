@@ -103,4 +103,8 @@ module UsersHelper
   def select_user_role
     User.roles.keys.reject!{|n| n == "admin"}
   end
+
+  def format_skill_years years
+    years.to_i == years ? "%i" % years : years
+  end
 end

@@ -18,7 +18,7 @@ $(document).ready(function() {
       url: url,
       method: 'PATCH',
       dataType: 'JSON',
-      data: {type :type, input_info_user: input_info_user}
+      data: {type: type, input_info_user: input_info_user}
     })
     .done(function(data) {
       if (data.info_status == 'success') {

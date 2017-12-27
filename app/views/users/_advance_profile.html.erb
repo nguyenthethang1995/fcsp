@@ -14,7 +14,10 @@
       <% advance_profiles[:skills].each do |skill| %>
         <li class="list-group-item">
           <span><%= skill.skill_name %></span>
-          <span class="pull-right"><%= skill.years %></span>
+          <span class="pull-right">
+            <%= format_skill_years skill.years %>
+            <%= t ".years" %>
+          </span>
         </li>
       <% end %>
     </ul>
