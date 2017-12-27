@@ -1,42 +1,42 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <article class="show-header-user post header-avatar-edit">
-          <div class="cover-image">
-            <div class="ico-upload-cover" data-toggle="modal"
-              data-target="#changeCoverModal">
-              <%= icon "camera" %>
-              <span><%= t "users.header.change_cover" %></span>
-            </div>
-            <%= load_user_cover current_user, class: "img-cover" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <article class="show-header-user post header-avatar-edit">
+        <div class="cover-image">
+          <div class="ico-upload-cover" data-toggle="modal"
+            data-target="#changeCoverModal">
+            <%= icon "camera" %>
+            <span><%= t "users.header.change_cover" %></span>
           </div>
-          <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
-            data-target="#changeAvatarModal">
-            <%= load_user_avatar current_user, class: "img-avatar" %>
-            <div class="icon-upload-avatar">
-              <h3 class="glyphicon glyphicon-camera"></h3>
-            </div>
-          </a>
-          <span class="site-name"><strong><%= current_user.name %></strong></span>
-          <span class="occupation">
-            <i class="fa fa-briefcase"></i>
-            <%= current_user.info_user_occupation %>
-          </span>
-        </article>
-      </div>
-    </div>
-    <%= render "users/change_avatar", user: current_user %>
-    <%= render "users/change_cover", user: current_user %>
-    <div class="row">
-      <div class="col-md-9">
-        <article class="post show-tab-user">
-          <%= render "personal_information" %>
-        </article>
-      </div>
-      <div class="col-md-3">
-        <article class="post show-tab-user">
-          <strong><%= t ".comming_soon" %></strong>
-        </article>
-      </div>
+          <%= load_user_cover current_user, class: "img-cover" %>
+        </div>
+        <a class="navbar-brand avatar-user" data-toggle="modal"
+          data-target="#changeAvatarModal">
+          <%= load_user_avatar current_user, class: "img-avatar" %>
+          <div class="icon-upload-avatar">
+            <h3 class="glyphicon glyphicon-camera"></h3>
+          </div>
+        </a>
+        <span class="site-name">
+          <strong>
+            <%= current_user.name %>
+          </strong>
+        </span>
+      </article>
     </div>
   </div>
+  <%= render "users/change_avatar", user: current_user %>
+  <%= render "users/change_cover", user: current_user %>
+  <div class="row">
+    <div class="col-md-9">
+      <article class="post show-tab-user">
+        <%= render "personal_information" %>
+      </article>
+    </div>
+    <div class="col-md-3">
+      <article class="post show-tab-user">
+        <strong><%= t ".comming_soon" %></strong>
+      </article>
+    </div>
+  </div>
+</div>

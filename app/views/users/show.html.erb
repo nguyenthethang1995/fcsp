@@ -5,20 +5,24 @@
         <div class="cover-image">
           <%= load_user_cover @user, class: "img-cover" %>
         </div>
-        <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
+        <a class="navbar-brand avatar-user" data-toggle="modal"
           data-target="#changeAvatarModal">
           <%= load_user_avatar @user, class: "img-avatar" %>
         </a>
         <span class="site-name"><strong><%= @user.name %></strong></span>
 
           <ul class="nav nav-tabs nav-tabs-profile-user">
-            <li>
-              <a class="black-text"><i class="fa fa-briefcase"></i>
-              <%= @user.info_user_occupation %></a>
-            </li>
             <% if @user.is_user?(current_user) && user_signed_in? %>
-                <li class="active"><a href="#information" data-toggle="tab"><%= t ".information" %></a></li>
-                <li><a href="#list-trainees" data-toggle="tab"><%= t ".list_trainees" %></a></li>
+                <li class="active">
+                  <a href="#information" data-toggle="tab">
+                    <%= t ".information" %>
+                  </a>
+                </li>
+                <li>
+                  <a href="#list-trainees" data-toggle="tab">
+                    <%= t ".list_trainees" %>
+                  </a>
+                </li>
             <% end %>
           </ul>
         <div class="request-user">
@@ -42,7 +46,8 @@
               <% if check_permission_profile ||
                 @user.is_user?(current_user) || @user.share?(current_user) %>
                 <div class="tab-pane fade in active" id="information">
-                  <%= render "advance_profile", advance_profiles: @advance_profiles %>
+                  <%= render "advance_profile",
+                    advance_profiles: @advance_profiles %>
                 </div>
               <% else %>
                 <h1><%= t ".page_error" %></h1>
@@ -52,7 +57,8 @@
                   <div class="row">
                     <ul>
                       <div id="list-trainees-ajax">
-                        <%= render partial: "list_trainee", collection: @trainees, as: :trainees %>
+                        <%= render partial: "list_trainee",
+                          collection: @trainees, as: :trainees %>
                       </div>
                     </ul>
                   </div>
@@ -68,7 +74,8 @@
       <div class="col-md-3">
         <article class="post show-tab-user">
           <div class="clearfix">
-            <%= render "basic_profile", user: @user, info_user: @info_user, users: @users %>
+            <%= render "basic_profile", user: @user, info_user: @info_user,
+              users: @users %>
           </div>
         </article>
       </div>
