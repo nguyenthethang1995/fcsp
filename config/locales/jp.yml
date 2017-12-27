@@ -234,14 +234,6 @@ jp:
       login: "Login"
       logout: "Logout"
   pages:
-    about:
-      content: "This is about page"
-      title: "About"
-    help:
-      content: "This is help page"
-      title: "Help"
-    home:
-      title: "Home"
     index:
       email_address: "電子メールアドレス"
       password: "パスワード"
@@ -289,7 +281,6 @@ jp:
       unfollow: "アンフォロー"
     show:
       information: "情報"
-      list_trainees: "研修生をリストする"
       message: "メッセージ"
   conversations:
     conversation:

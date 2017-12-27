@@ -12,18 +12,11 @@
         <span class="site-name"><strong><%= @user.name %></strong></span>
 
           <ul class="nav nav-tabs nav-tabs-profile-user">
-            <% if @user.is_user?(current_user) && user_signed_in? %>
-                <li class="active">
-                  <a href="#information" data-toggle="tab">
-                    <%= t ".information" %>
-                  </a>
-                </li>
-                <li>
-                  <a href="#list-trainees" data-toggle="tab">
-                    <%= t ".list_trainees" %>
-                  </a>
-                </li>
-            <% end %>
+            <li>
+              <a href="#information" data-toggle="tab">
+                <%= t ".information" %>
+              </a>
+            </li>
           </ul>
         <div class="request-user">
           <% if !@user.is_user?(current_user) && user_signed_in? %>
@@ -51,21 +44,6 @@
                 </div>
               <% else %>
                 <h1><%= t ".page_error" %></h1>
-              <% end %>
-              <% if @user.is_user?(current_user) && user_signed_in? %>
-                <div class="tab-pane fade" id="list-trainees">
-                  <div class="row">
-                    <ul>
-                      <div id="list-trainees-ajax">
-                        <%= render partial: "list_trainee",
-                          collection: @trainees, as: :trainees %>
-                      </div>
-                    </ul>
-                  </div>
-                  <div id="paginate-trainees-user-profile">
-                    <%= render "paginate_trainees" %>
-                  </div>
-                </div>
               <% end %>
             </div>
           </div>

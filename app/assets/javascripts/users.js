@@ -183,21 +183,4 @@ function setupLinkedDatePicker(start, end) {
   $(document).on('changeDate', end, {}, function (e) {
     $(start).datepicker('setEndDate', e.date);
   });
-
-  $('#paginate-trainees-user-profile').on('click', 'a.page-link', function(e) {
-    var url_request;
-    e.preventDefault();
-    url_request = $(this).attr('href');
-
-    $.ajax({
-      dataType: 'json',
-      url: url_request,
-      method: 'GET',
-      success: function(data) {
-        $('#list-trainees-ajax').html(data.trainees);
-        $('#paginate-trainees-user-profile').html(data.paginate_trainees);
-      }
-    });
-    return false;
-  })
 }

@@ -60,4 +60,3 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require setting/synchronize
-//= require pages
