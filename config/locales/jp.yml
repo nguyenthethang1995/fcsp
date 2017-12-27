@@ -242,6 +242,11 @@ jp:
       title: "Help"
     home:
       title: "Home"
+    index:
+      email_address: "電子メールアドレス"
+      password: "パスワード"
+      login: "ログイン"
+      title: "ログインページ"
   title: "Framgia code school platform"
   users:
     update_auto_synchronize:

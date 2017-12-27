@@ -77,22 +77,6 @@ vi:
       updated: "Tài khoản của bạn đã được cập nhật thành công."
       update_error: "Có lỗi xảy ra. Làm ơn kiểm tra lại!"
     sessions:
-      already_signed_out: "Đăng xuất thành công."
-      form_login:
-        email_address: "Địa chỉ email"
-        facebook: "Facebook"
-        forgot_password: "Quên mật khẩu của bạn?"
-        confirmation_account: "Xác thực tài khoản"
-        google: "Google+"
-        hr_system: "Hệ thống Hr"
-        login: "Đăng nhập"
-        or: "hoặc"
-        or_login_with: "Hoặc đăng nhập với"
-        password: "Mật khẩu"
-        sign_up: "Đăng kí"
-        twitter: "Twitter"
-      new:
-        login: "Đăng nhập"
       signed_in: "Đăng nhập thành công."
       signed_out: "Đăng xuất thành công."
     unlocks:

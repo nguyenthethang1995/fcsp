@@ -1,13 +1,6 @@
 <nav class="navbar main-menu navbar-default">
   <div class="menu-content">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-        data-target="#bs-example-navbar-collapse-1">
-        <span class="sr-only"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
       <%= link_to root_path, class: "navbar-brand",
         data: {dark_logo: "logo-framgia.png"} do %>
         <%= image_tag "logo-framgia.png", alt: t("education.logo_alt"),
@@ -27,7 +20,8 @@
           <% if current_user.employer? %>
             <% if current_user.company %>
               <li class="dropdown">
-                  <a href="#" class="dropdown-toggle text-center" data-toggle="dropdown">
+                  <a href="#" class="dropdown-toggle text-center"
+                    data-toggle="dropdown">
                     <%= t ".employer" %> <b class="caret"></b>
                   </a>
                   <ul class="dropdown-menu">
@@ -62,13 +56,6 @@
                 <%= link_to t(".sign_out"), destroy_user_session_path,
                   method: :delete %>
               </li>
-            </ul>
-          <% else %>
-            <button class="btn btn-login dropdown-toggle" type="button" data-toggle="dropdown">
-              <b><%= t ".login" %></b>
-            </button>
-            <ul class="dropdown-menu form-login">
-              <%= render "devise/sessions/form_login" %>
             </ul>
           <% end %>
         </span>

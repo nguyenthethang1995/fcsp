@@ -656,6 +656,11 @@ vi:
     home:
       job_opportunity: "Jobs Opportunity"
       title: "Home"
+    index:
+      email_address: "Địa chỉ email"
+      password: "Mật khẩu"
+      login: "Đăng nhập"
+      title: "Trang đăng nhập"
   share_posts:
     create:
       not_found: "Không tìm thấy bài viết."
