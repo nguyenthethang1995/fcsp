@@ -77,22 +77,6 @@ jp:
       updated: "あなたのアカウントは正常に更新されました."
       update_error: "何かが間違っていました。もう一度確認してください！"
     sessions:
-      already_signed_out: "署名済み."
-      form_login:
-        email_address: "電子メールアドレス"
-        facebook: "Facebook"
-        forgot_password: "パスワードをお忘れですか?"
-        confirmation_account: "確認勘定"
-        google: "Google+"
-        hr_system: "Hr System"
-        login: "ログイン"
-        or: "または"
-        or_login_with: "またはでログインする"
-        password: "パスワード"
-        sign_up: "サインアップ"
-        twitter: "Twitter"
-      new:
-        login: "ログイン"
       signed_in: "署名済み."
       signed_out: "署名済み."
     unlocks:

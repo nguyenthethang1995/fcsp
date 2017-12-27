@@ -622,6 +622,11 @@ en:
     job_bookmark:
       bookmark_job: "Bookmark"
       unbookmark: "Unbookmark"
+    index:
+      email_address: "Email address"
+      password: "Password"
+      login: "Login"
+      title: "Login pages"
   safe: "This company introduction is safe"
   share_jobs:
     create:
