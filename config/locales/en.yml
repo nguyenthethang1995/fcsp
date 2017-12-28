@@ -610,18 +610,6 @@ en:
       people_worked: "People who worked here also worked"
       people_worked_here: "People who worked here"
   pages:
-    about:
-      content: "This is about page"
-      title: "About"
-    help:
-      content: "This is help page"
-      title: "Help"
-    index:
-      job_opportunity: "Jobs Opportunity"
-      title: "Home"
-    job_bookmark:
-      bookmark_job: "Bookmark"
-      unbookmark: "Unbookmark"
     index:
       email_address: "Email address"
       password: "Password"
@@ -1074,7 +1062,6 @@ en:
       page_error: "This is not the web page you are looking for"
       posts: "Posts"
       information: "Information"
-      list_trainees: "List trainees"
     skill_user:
       add: "Add"
       skills: "Skills"

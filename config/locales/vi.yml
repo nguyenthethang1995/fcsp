@@ -647,15 +647,6 @@ vi:
       people_worked: "Họ cũng từng làm ở:"
       people_worked_here: "Những người đã làm việc ở đây"
   pages:
-    about:
-      content: "This is about page"
-      title: "About"
-    help:
-      content: "This is help page"
-      title: "Help"
-    home:
-      job_opportunity: "Jobs Opportunity"
-      title: "Home"
     index:
       email_address: "Địa chỉ email"
       password: "Mật khẩu"
@@ -1042,7 +1033,6 @@ vi:
       page_error: "Trang này bạn không được quyền xem"
       posts: "Bài đăng"
       information: "Thông tin cá nhân"
-      list_trainees: "Danh sách học viên"
       message: "Tin nhắn"
     skill_user:
       add: "Thêm"

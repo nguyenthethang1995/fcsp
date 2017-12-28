@@ -10,10 +10,6 @@ RSpec.describe UsersController, type: :controller do
       get :show, params: {id: user}
     end
 
-    before(:each, :xhr) do
-      get :show, params: {id: user}, xhr: true
-    end
-
     it "responds successfully", :no_xhr do
       expect(response).to be_success
     end
@@ -23,25 +19,13 @@ RSpec.describe UsersController, type: :controller do
     end
 
     it "assigns @users", :no_xhr do
-      expect(assigns(:users).keys).to eq [:user_shares, :limit_user_shares,
-        :user_following, :limit_user_following]
+      expect(assigns(:users).keys).to eq %i(user_shares limit_user_shares
+        user_following limit_user_following)
     end
 
     it "assigns @advance_profiles", :no_xhr do
-      expect(assigns(:advance_profiles).keys).to eq [:schools, :skills,
-        :languages, :courses]
-    end
-
-    it "assigns @trainees", :no_xhr do
-      expect(assigns :trainees).to eq [user1, user2]
-    end
-
-    it "responds 200 status", :xhr do
-      expect(response).to have_http_status 200
-    end
-
-    it "responds with JSON formatted output", :xhr do
-      expect(response.content_type).to eq "application/json"
+      expect(assigns(:advance_profiles).keys).to eq %i(schools skills languages
+        courses)
     end
   end
 
