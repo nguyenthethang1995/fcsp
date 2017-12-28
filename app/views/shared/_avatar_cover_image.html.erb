@@ -1,18 +1,16 @@
+<div class="container">
   <div class="row">
     <div class="col-md-12">
       <article class="show-header-user post header-avatar-edit">
         <div class="cover-image">
           <%= load_user_cover user, class: "img-cover" %>
         </div>
-        <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
-          data-target="#changeAvatarModal">
+        <%= link_to "#", data: {toggle: "modal", target: "#changeAvatarModal"},
+          class: "navbar-brand avatar-user" do %>
           <%= load_user_avatar user, class: "img-avatar" %>
-        </a>
+        <% end %>
         <span class="site-name"><b><%= user.name %></b></span>
-        <span class="occupation">
-          <i class="fa fa-briefcase"></i>
-          <%= user.info_user_occupation %>
-        </span>
       </article>
     </div>
   </div>
+</div>
