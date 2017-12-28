@@ -86,7 +86,8 @@
     </span>
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
-      <%= f.select :gender, select_info_user_gender, {}, class: "form-control" %>
+      <%= f.select :gender, select_info_user_gender, {},
+        class: "form-control select-form" %>
       <%= render "shared/button_group" %>
     <% end %>
   </div>
@@ -147,7 +148,8 @@
     <%= form_for @info_user, url: info_user_path(@info_user),
       method: :patch do |f| %>
       <%= f.select :relationship_status,
-        select_info_user_relationship_status, {}, class: "form-control" %>
+        select_info_user_relationship_status, {},
+        class: "form-control select-form" %>
       <%= render "shared/button_group" %>
     <% end %>
   </div>
