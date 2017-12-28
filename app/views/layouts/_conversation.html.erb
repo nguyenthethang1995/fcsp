@@ -1,6 +1,8 @@
-<div class="col-md-9">
-  <ul id="conversations-list">
-    <%= render partial: "conversations/conversation", collection: conversations,
-      locals: {user: current_user} %>
-  </ul>
-</div>
+<% if conversations.present? %>
+  <div class="col-md-9">
+    <ul id="conversations-list">
+      <%= render partial: "conversations/conversation",
+        collection: conversations, locals: {user: current_user} %>
+    </ul>
+  </div>
+<% end %>
