@@ -949,6 +949,8 @@ en:
       add: "Add"
       user_work: "User Work"
   users:
+    advance_profile:
+      years: "years"
     personal_information:
       if_you_dont_want: "If you don't want to change, click cancel"
       click_to_change: "Click to change"
@@ -1077,6 +1079,8 @@ en:
       social_profiles: "Connect with me"
       twitter: "Twitter"
       youtube: "Youtube"
+    update:
+      param_incorrect: "Update errot because param is incorrect. Check again!"
     user_certificate:
       add: "Add"
       certificate: "Certificates"

@@ -7,7 +7,10 @@
           <span class="button-edit">
             <i class="fa fa-pencil"><%= t ".edit" %></i>
           </span>
-          <span class="skill-level pull-right"><%= skill.years %></span>
+          <span class="skill-level pull-right">
+            <%= format_skill_years skill.years %>
+            <%= t ".years" %>
+          </span>
         </div>
         <div class="edit-form">
           <%= render "users/form_update_skill", skill: skill %>
