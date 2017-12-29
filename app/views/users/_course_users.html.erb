@@ -1,3 +1,4 @@
+<% if courses.present? %>
 <div class="right_col" role="main">
   <div class="page-title">
     <div class="row">
@@ -29,3 +30,6 @@
     </div>
   </div>
 </div>
+<% else %>
+  <%= t ".coming_soon" %>
+<% end %>

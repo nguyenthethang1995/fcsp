@@ -30,7 +30,7 @@ en:
     skill:
       edit: "Edit"
     edit:
-      comming_soon: "Comming Soon!"
+      coming_soon: "Coming soon!"
   setting:
     notice:
       delete_error: "Delete error!"

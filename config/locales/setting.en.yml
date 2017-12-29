@@ -4,6 +4,7 @@ en:
       if_you_dont_want: "If you don't want to change, click cancel"
       click_to_change: "Click to change"
       update_success: "Profile updated"
+      invalid_date: "Invalid Date"
       index:
         users_shared: "Users you shared your profile"
       synchronize:

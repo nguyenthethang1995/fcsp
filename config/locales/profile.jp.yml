@@ -27,7 +27,7 @@ jp:
     skill:
       edit: "編集"
     edit:
-      comming_soon: "すぐにコミット！"
+      coming_soon: "すぐにコミット！"
   setting:
     notice:
       delete_ero: "エラーを削除！"
