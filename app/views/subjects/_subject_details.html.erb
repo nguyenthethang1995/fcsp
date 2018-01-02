@@ -7,22 +7,56 @@
             data: {"user-id": user.id} %>
         </li>
         <li>
-          <%= link_to course.name, user_course_path(user.id, course.id),
-            class: "course-all",
-            data: {"user-id": user.id, "course-id": course.id} %>
+          <% if course.name.size < Settings.truncate.course_name %>
+            <%= link_to course.name,
+              user_course_path(user.id, course.id), class: "course-all",
+              data: {"user-id": user.id, "course-id": course.id} %>
+          <% else %>
+            <%= link_to course.name.truncate(Settings.truncate.course_name),
+              user_course_path(user.id, course.id), class: "course-all",
+              data: {"user-id": user.id, "course-id": course.id, toggle: "tooltip"},
+              role: "tooltip", title: course.name %>
+          <% end %>
         </li>
-        <li><a><%= subject.subject_name %></a></li>
+        <li>
+          <% if subject.subject_name.size < Settings.truncate.subject_name %>
+            <%= link_to subject.subject_name %>
+          <% else %>
+            <%= link_to subject.subject_name.truncate Settings.truncate.subject_name,
+              role: "tooltip", data: {toggle: "tooltip"},
+              title: subject.subject_name %>
+          <% end %>
+        </li>
       </ol>
     </div>
 
     <div class="course-subject">
       <div class="image-course">
-        <img src="<%= check_language course %>">
+        <%= image_tag check_language course %>
       </div>
       <div class="course-header">
-        <span class="title_course"><%= subject.subject_name %></span>
-        <span class="status"><%= subject.status %></span>
-        <div class="description"><%= subject.subject_description %></div>
+        <% if subject.subject_name.size < Settings.truncate.subject_name %>
+          <span class="title_course">
+        <% else %>
+          <span class="title_course" role="tooltip" data-toggle="tooltip" title="<%= subject.subject_name %>">
+        <% end %>
+        <%= subject.subject_name.truncate Settings.truncate.subject_name %>
+        </span>
+
+        <span class="status">
+          <%= subject.status %>
+        </span>
+
+        <div class="description">
+          <% if subject.subject_description.size < Settings.truncate.subject_description %>
+            <div>
+          <% else %>
+            <div role="tooltip" data-toggle="tooltip" title="<%= subject.subject_description %>">
+          <% end %>
+          <%= subject.subject_description.truncate Settings.truncate
+            .subject_description %>
+          </div>
+        </div>
         <div class="date">
           <% if subject.start_date? && subject.end_date? %>
             <span>
@@ -34,7 +68,10 @@
       </div>
     </div>
 
-    <h4><%= t ".tasks" %><%= subject.subject_name %></h4>
+    <h4>
+      <%= t ".tasks" %>
+      <%= subject.subject_name.truncate Settings.truncate.subject_name %>
+    </h4>
 
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">

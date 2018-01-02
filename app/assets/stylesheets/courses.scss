@@ -12,7 +12,6 @@
       -moz-border-radius: 4px 0 0 4px;
     }
     display: inline-block;
-    vertical-align: top;
     a, span {
       display: inline-block;
       vertical-align: top;
@@ -118,10 +117,11 @@
   .course-header {
     display: inline-block;
     float: left;
+    height: 100%;
     margin-right: 10px;
     padding-left: 10px;
     position: absolute;
-    width: 80%;
+    width: 85%;
 
     .title_course {
       color: $flamingo;
@@ -160,8 +160,9 @@
     }
 
     .date {
+      bottom: 0;
       position: absolute;
-      right: 16px;
+      right: 0;
     }
   }
 }
