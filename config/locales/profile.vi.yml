@@ -27,7 +27,7 @@ vi:
     skill:
       edit: "Chỉnh sửa"
     edit:
-      comming_soon: "Sắp tới!"
+      coming_soon: "Sắp tới!"
   setting:
     notice:
       delete_ero: "Xáy ra lỗi khi xóa bản ghi!"

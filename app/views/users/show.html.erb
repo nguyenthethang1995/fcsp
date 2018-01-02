@@ -10,12 +10,11 @@
           <%= load_user_avatar @user, class: "img-avatar" %>
         </a>
         <span class="site-name"><strong><%= @user.name %></strong></span>
-
           <ul class="nav nav-tabs nav-tabs-profile-user">
-            <li>
-              <a href="#information" data-toggle="tab">
+            <li class="active">
+              <%= link_to "#information", data: {toggle: "tab"} do %>
                 <%= t ".information" %>
-              </a>
+              <% end %>
             </li>
           </ul>
         <div class="request-user">
