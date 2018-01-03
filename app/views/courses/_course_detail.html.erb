@@ -14,17 +14,37 @@
     <div class="timeline-panel">
       <div class="tl-heading">
         <div class="image-subject">
-          <img src="<%= check_language course %>">
+          <%= image_tag check_language course %>
         </div>
         <div class="title_subject">
-          <%= link_to course_subject.subject_name,
-            user_course_subject_path(@user.id, @course.id,course_subject.id),
-            class: "subject-all", data: {"user-id": @user.id,
-              "course-id": course.id, "subject-id": course_subject.id} %>
+          <% if course_subject.subject_name.size < Settings.truncate
+                                                           .subject_name %>
+            <%= link_to course_subject.subject_name,
+              user_course_subject_path(@user.id, @course.id,course_subject.id),
+              class: "subject-all", data: {"user-id": @user.id,
+                "course-id": course.id, "subject-id": course_subject.id} %>
+          <% else %>
+            <%= link_to course_subject.subject_name
+              .truncate(Settings.truncate.subject_name),
+              user_course_subject_path(@user.id, @course.id,course_subject.id),
+              class: "subject-all", data: {"user-id": @user.id,
+                "course-id": course.id, "subject-id": course_subject.id,
+                toggle: "tooltip"}, role: "tooltip",
+                title: course_subject.subject_name %>
+          <% end %>
         </div>
       </div>
       <div class="tl-body">
-        <i><%= course_subject.subject_description %></i>
+        <% if course_subject.subject_description.size < Settings.truncate
+                                                                .subject_description %>
+          <i>
+        <% else %>
+          <i role="tooltip" data-toggle="tooltip"
+            title="<%= course_subject.subject_description %>">
+        <% end %>
+        <%= course_subject.subject_description.truncate Settings.truncate
+                                                                .subject_description %>
+        </i>
       </div>
     </div>
   </li>
