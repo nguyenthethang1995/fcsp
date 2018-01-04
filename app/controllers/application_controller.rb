@@ -18,6 +18,11 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  def routing_error
+    flash[:alert] = t "routing_error"
+    redirect_to root_path
+  end
+
   private
 
   def rack_mini_profiler_authorize_request
