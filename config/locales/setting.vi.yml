@@ -5,7 +5,7 @@ vi:
       if_you_dont_want: "Nếu bạn không muốn thay đổi, bâm vào nút hủy bỏ"
       update_success: "Hồ sơ đã được cập nhật"
       index:
-        users_shared: "Những người bạn đã chia sẻ trang cá nhân"
+        you_can_share: "Bạn có thể chia sẻ trang cá nhân của bạn với những người khác"
       synchronize:
         refresh: "Đồng bộ hóa dữ liệu"
         refresh_now: "Đồng bộ hóa dữ liệu ngay"

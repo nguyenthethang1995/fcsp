@@ -6,7 +6,7 @@ en:
       update_success: "Profile updated"
       invalid_date: "Invalid Date"
       index:
-        users_shared: "Users you shared your profile"
+        you_can_share: "You can share your profile with other people"
       synchronize:
         refresh: "Refresh"
         refresh_now: "Refresh now"
@@ -16,7 +16,7 @@ en:
         all_data_sync_now: "All your data will be synchronized with TMS system immediately when you click this button"
         all_data_auto_sync: "All your data wil be auto synchronized with TMS system everyday when you click this button"
         synchronize: "Synchronize"
-        you_can_sync: "You can sync your data with training management system here or you can choose manual sync or auto sync everyday"
+        you_can_sync: "You can synchronize your data with training management system here or you can choose manual sync or auto sync everyday"
     share_profiles:
       modal_edit:
         cancel: "Cancel"

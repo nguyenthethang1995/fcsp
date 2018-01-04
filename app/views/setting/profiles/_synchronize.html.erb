@@ -1,7 +1,9 @@
 <div class="col_full">
   <a class="toggle-synchronize">
     <h4 class="orange-text"><%= t ".synchronize" %></h4>
-    <span class="top-right-edit"><%= t "setting.profiles.click_to_change" %></span>
+    <span class="top-right-edit">
+      <%= t "setting.profiles.click_to_change" %>
+    </span>
   </a>
   <div class="black-text"><%= t ".you_can_sync" %></div>
   <div class="edit-synchronize">
@@ -15,7 +17,8 @@
         </div>
         <div class="col-md-3 btn-tms-sync">
           <div class="button-group-edit pull-right">
-            <button type="button" class="btn btn-sm btn-default cancel-edit-synchronize">
+            <button type="button" class="btn btn-sm btn-default
+              cancel-edit-synchronize">
               <%= t ".cancel" %>
             </button>
             <%= tms_synchronize_button %>

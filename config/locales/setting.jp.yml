@@ -5,7 +5,7 @@ jp:
       if_you_dont_want: "変更しない場合は、[キャンセル]をクリックします"
       update_success: "プロフィール更新"
       index:
-        users_shared: "あなたのプロフィールを共有したユーザー"
+        you_can_share: "あなたのプロフィールを他の人と共有することができます"
       synchronize:
         refresh: "リフレッシュする"
         refresh_now: "今更新する"
