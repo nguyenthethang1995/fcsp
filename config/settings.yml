@@ -302,3 +302,4 @@ truncate:
   subject_description: 200
   task_name: 40
   task_description: 200
+  course_description: 200

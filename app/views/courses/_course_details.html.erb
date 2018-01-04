@@ -6,21 +6,39 @@
           <%= link_to t(".home"), user_path(user),
             data: {"user-id": user.id} %>
         </li>
-        <li><a> <%= course.name %></a></li>
+        <li>
+          <a><%= course.name.truncate Settings.truncate.course_name %></a>
+        </li>
       </ol>
     </div>
 
     <div class="course-subject">
       <div class="image-course">
-        <img src="<%= check_language course %>">
+        <%= image_tag check_language course %>
       </div>
       <div class="course-header">
         <div>
-          <span class="title_course"><%= course.name %></span>
+          <% if course.name.size < Settings.truncate.course_name %>
+            <span class="title_course">
+          <% else %>
+            <span class="title_course" role="tooltip" data-toggle="tooltip"
+              title="<%= course.name %>" >
+          <% end %>
+          <%= course.name.truncate Settings.truncate.course_name %>
+          </span>
           <span class="status"><%= course.status %></span>
         </div>
         <p class="description">
-          <i><%= course.description %></i>
+          <% if course.description.size < Settings.truncate
+                                                  .course_description %>
+            <i>
+          <% else %>
+            <i role="tooltip" data-toggle="tooltip"
+              title="<%= course.description %>">
+          <% end %>
+          <%= course.description.truncate Settings.truncate
+                                                  .course_description %>
+          </i>
         </p>
         <div class="date">
           <% if course.start_date? && course.end_date? %>
@@ -33,7 +51,10 @@
       </div>
     </div>
 
-    <h4><%= t ".subjects" %><%= course.name %></h4>
+    <h4>
+      <%= t ".subjects" %>
+      <%= course.name.truncate Settings.truncate.course_name %>
+    </h4>
 
     <div class="row">
       <div class="col-md-12 col-sm-12 col-xs-12">
@@ -41,9 +62,8 @@
           <div class="x_title">
           </div>
           <div class="x_content">
-            <% subjects.each do |course_subject| %>
-              <%= render "course_detail", course_subject: course_subject, course: course %>
-            <% end %>
+            <%= render partial: "course_detail", collection: subjects,
+              as: :course_subject, locals: {course: course} %>
           </div>
         </div>
       </div>
