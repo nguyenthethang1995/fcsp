@@ -9,9 +9,22 @@
   <div class="col-md-10 info-detail">
     <div class="title-assignment">
       <div>
-        <span class="title_course"><%= task.task_name %></span>
+        <% if task.task_name.size < Settings.truncate.task_name %>
+          <span class="title_course">
+        <% else %>
+          <span class="title_course" role="tooltip" data-toggle="tooltip" title="<%= task.task_name %>">
+        <% end %>
+        <%= task.task_name.truncate Settings.truncate.task_name %>
+        </span>
       </div>
       <span class="description-text"><%= task.task_description %></span>
+      <% if task.task_description.size < Settings.truncate.task_description %>
+        <span class="description-text">
+      <% else %>
+        <span class="description-text" role="tooltip" data-toggle="tooltip" title="<%= task.task_description %>">
+      <% end %>
+      <%= task.task_description.truncate Settings.truncate.task_description %>
+      </span>
     </div>
     <div class="github">
       <i class="fa fa-link"></i>

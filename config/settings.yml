@@ -295,3 +295,10 @@ list_trainee:
 users:
   show:
     trainees_per_page: 10
+truncate:
+  subject_name: 40
+  course_name: 40
+  subject_status: 200
+  subject_description: 200
+  task_name: 40
+  task_description: 200
