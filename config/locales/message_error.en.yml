@@ -1,3 +1,4 @@
 en:
   page_error: "You are not permission to access this page"
   model_not_found: "%{model} is not found"
+  routing_error: "That page is not available"

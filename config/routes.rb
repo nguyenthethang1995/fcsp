@@ -81,4 +81,6 @@ Rails.application.routes.draw do
     end
     resources :messages, only: :create
   end
+
+  match "*path", to: "application#routing_error", via: :all
 end
