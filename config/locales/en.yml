@@ -676,6 +676,8 @@ en:
       synchronize_fail: "Something wrong, please try again later"
       synchronize_success: "Synchronize Success"
   user_avatars:
+    if_you_dont_want: "If you don't want to change the image, please click the close button."
+    you_didnt_choose: "You didn't choose the picture"
     create:
       fail: "Change avatar failed"
       success: "Change avatar successfully!"

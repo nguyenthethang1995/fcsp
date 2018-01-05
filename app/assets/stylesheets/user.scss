@@ -119,9 +119,13 @@
   }
 }
 
-.user-image-div:hover {
-  border: 1px solid $orange;
-  cursor: pointer;
+.user-image-div {
+  min-height: 50px;
+
+  :hover {
+    border: 1px solid $orange;
+    cursor: pointer;
+  }
 }
 
 .ico-upload-cover {

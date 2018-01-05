@@ -293,3 +293,21 @@ jp:
     cancel: "キャンセル"
     delete: "削除"
     save: "リュウ"
+  user_avatars:
+    if_you_dont_want: "画像を変更したくない場合は、閉じるボタンをクリックしてください。"
+    you_didnt_choose: "あなたは写真を選んでいない"
+    create:
+      fail: "アバターの変更に失敗しました"
+      success: "アバターを正常に変更してください！"
+    update:
+      fail: "アバターの変更に失敗しました"
+      not_found: "画像が見つかりません"
+      success: "アバターを正常に変更してください！"
+  user_covers:
+    create:
+      fail: "カバーイメージの変更に失敗しました"
+      success: "カバーイメージを正常に変更してください！"
+    update:
+      fail: "カバーイメージの変更に失敗しました"
+      not_found: "画像が見つかりません"
+      success: "カバーイメージを正常に変更してください！"

@@ -1,10 +1,4 @@
-<% if user.images.any? %>
-  <% user.images.each do |image| %>
-    <div class="col-md-2 user-image-div">
-      <%= image_tag image.picture, alt: "#{user.name}", class: "user-image-img",
-        id: "user-image-#{image.id}", data: {id: image.id} %>
-    </div>
-  <% end %>
-<% else %>
-  <p><%= t ".no_image" %></p>
-<% end %>
+<div class="col-md-2 user-image-div">
+  <%= image_tag image.picture, alt: "#{user.name}", class: "user-image-img",
+    id: "user-image-#{image.id}", data: {id: image.id} %>
+</div>

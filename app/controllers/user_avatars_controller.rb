@@ -1,33 +1,41 @@
 class UserAvatarsController < ApplicationController
   before_action :authenticate_user!
-  load_resource :image, through: :current_user, parent: false, only: :update
 
   def create
-    create_avatar
-    redirect_to user_path current_user
+    if params[:image].blank?
+      flash[:danger] = t "user_avatars.you_didnt_choose"
+      redirect_to edit_user_path current_user
+    else
+      image = current_user.images.build avatar_params
+
+      if image.save && current_user.update(avatar_id: image.id)
+        flash[:success] = t ".success"
+        redirect_to user_path current_user
+      else
+        flash[:danger] = t ".fail"
+        redirect_to edit_user_path current_user
+      end
+    end
   end
 
   def update
-    update_avatar
-    redirect_to user_path current_user
+    if params[:image][:picture].blank?
+      flash[:danger] = t "user_avatars.you_didnt_choose"
+      redirect_to edit_user_path current_user
+    else
+      if current_user.update avatar_id: avatar_params[:picture]
+        flash[:success] = t ".success"
+        redirect_to user_path current_user
+      else
+        flash[:danger] = t ".fail"
+        redirect_to edit_user_path current_user
+      end
+    end
   end
 
   private
 
-  def create_avatar
-    image = current_user.images.build picture: params[:picture]
-    if image.save && current_user.update(avatar_id: image.id)
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".fail"
-    end
-  end
-
-  def update_avatar
-    if current_user.update avatar_id: @image.id
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".fail"
-    end
+  def avatar_params
+    params.require(:image).permit :picture
   end
 end
