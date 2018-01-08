@@ -1,12 +1,11 @@
 class UsersController < ApplicationController
-  include Params
-
-  before_action :check_valid_param_type, only: :update
   before_action :authenticate_user!, except: :show
   before_action :authenticate_tms
   before_action :is_employer?, only: %i(show follow unfollow)
   load_and_authorize_resource
   skip_authorization_check only: :show
+  before_action :check_valid_param_type, only: :update
+
   autocomplete :skill, :name, full: true
 
   def show
@@ -29,17 +28,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update_attributes "#{params[:type]}":
-        params[:input_info_user]
-      user_attribute = User.pluck_params_type params[:id], params[:type]
-      render json: {
-        html: render_to_string(partial: "users/type",
-                               locals: {info_user: user_attribute},
-                               layout: false),
-        info_status: "success",
-        html_site_name: render_to_string(partial: "users/type_site_name",
-                                         layout: false)
-      }
+    if current_user.update_attributes user_params
+      type_update = user_params.keys.first
+      value_update = user_params[type_update]
+
+      render json: {html: value_update, info_status: "success", type: type_update}
     else
       render json: {message: current_user.errors.full_messages}
     end
@@ -70,11 +63,22 @@ class UsersController < ApplicationController
 
   private
 
+  def user_params
+    params.require(:user).permit :name
+  end
+
   def is_employer?
     if user_signed_in? && current_user.employer? && current_user.company_id
       @object = Company.find_by id: current_user.company_id
     else
       @object = current_user
     end
+  end
+
+  def check_valid_param_type
+    updatable_attributes = %w(name)
+
+    return if updatable_attributes.include? user_params.keys.first
+    render json: {message: t("params_error")}
   end
 end

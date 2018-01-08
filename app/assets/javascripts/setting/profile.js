@@ -7,38 +7,43 @@ $(document).ready(function() {
 
   $('.submit-edit-ajax').on('click', function(e) {
     e.preventDefault();
-    var input_info_user, type, url, class_col_full, format_data;
+    var url, class_col_full, format_data, form_data;
     class_col_full = $(this).closest('.col_full');
-    type = class_col_full.find('.form-edit-profile').attr('id').replace('edit-', '');
     url = class_col_full.find('form').attr('action');
-    input_info_user = $(this).closest('.form-edit-profile').find('.form-control').val();
+    form_data = new FormData(class_col_full.find('form')[0]);
     $.ajax({
       url: url,
       method: 'PATCH',
       dataType: 'JSON',
-      data: {type: type, input_info_user: input_info_user}
+      processData: false,
+      contentType: false,
+      data: form_data
     }).done(function(data) {
       if (data.info_status == 'success') {
-        $('#' + type).html(data.html);
-        format_data = data.html;
+        format_data = data.html.trim();
+
         if(checkDateTime(data.html)){
-          format_data = $.datepicker.formatDate('yy-mm-dd', new Date(data.html));
+          class_col_full.find('.current-info').html(new Date(format_data).toDateString());
+          format_data = $.datepicker.formatDate('yy-mm-dd', new Date(format_data));
+        } else {
+          class_col_full.find('.current-info').html(format_data);
         }
         class_col_full.find('.form-control')[0].defaultValue = format_data;
         class_col_full.find('option').removeAttr('selected');
-        class_col_full.find('.select-form > option[value="' + input_info_user + '"]').prop('selected', function(){
+        class_col_full.find('.select-form > option[value="' + format_data + '"]').prop('selected', function(){
           this.defaultSelected = true;
         });
 
         class_col_full.find('.form-edit-profile').toggle('slow');
         class_col_full.find('.current-info').toggle();
-
-        if (type == 'name') {
-          $('.site-name').html(data.html_site_name);
+        if (data.type == 'name') {
+          $('.site-name').html(format_data);
         }
 
         $.growl.notice({message: I18n.t('setting.profiles.update_success')});
       } else {
+        class_col_full.find('.form-edit-profile').toggle('slow');
+        class_col_full.find('.current-info').toggle();
         $.growl.error({message: data.message});
       }
     });

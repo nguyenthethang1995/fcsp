@@ -10,13 +10,9 @@
           <%= load_user_avatar @user, class: "img-avatar" %>
         </a>
         <span class="site-name"><strong><%= @user.name %></strong></span>
-          <ul class="nav nav-tabs nav-tabs-profile-user">
-            <li class="active">
-              <%= link_to "#information", data: {toggle: "tab"} do %>
-                <%= t ".information" %>
-              <% end %>
-            </li>
-          </ul>
+          <span class="nav nav-tabs-profile-user">
+            <%= t ".information" %>
+          </span>
         <div class="request-user">
           <% if !@user.is_user?(current_user) && user_signed_in? %>
             <div class="follow-user btn btn-primary message-button">

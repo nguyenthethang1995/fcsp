@@ -13,12 +13,12 @@
                       data: {"user-id": user.id, "course-id": course.id}, class: "course" do %>
                         <%= image_tag check_language(course), class: "img-responsive" %>
                         <span class="course-name">
-                          <%= course.name %>
+                          <%= course.name.truncate_words Settings.truncate.word.course_name %>
                         </span>
                     <% end %>
                     <hr>
                     <div class="course-description">
-                      <%= course.description.truncate_words 25 %>
+                      <%= course.description.truncate_words Settings.truncate.word.course_description %>
                     </div>
                   </div>
                 <% end %>
