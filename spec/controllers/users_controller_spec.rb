@@ -90,20 +90,17 @@ RSpec.describe UsersController, type: :controller do
       end
 
       it "update successfully" do
-        patch :update, params: {id: user, type: "name",
-          input_info_user: "tester"}
+        patch :update, params: {id: user, user: {name: "tester"}}
         expect(user.reload.name).to eq "tester"
       end
 
       it "render json response" do
-        patch :update, params: {id: user, type: "name",
-          input_info_user: "tester"}
+        patch :update, params: {id: user, user: {name: "tester"}}
         expect(response.content_type).to eq "application/json"
       end
 
       it "update error with name value is nil" do
-        patch :update, params: {id: user, type: "name",
-          input_info_user: ""}
+        patch :update, params: {id: user, user: {name: ""}}
         expect(response.content_type).to eq "application/json"
       end
     end
@@ -114,8 +111,7 @@ RSpec.describe UsersController, type: :controller do
       before do
         other_user = FactoryBot.create :user
         sign_in other_user
-        patch :update, params: {id: user, type: "name",
-          input_info_user: "tester"}
+        patch :update, params: {id: user, user: {name: "tester"}}
       end
 
       it "return 302 response" do
@@ -124,6 +120,24 @@ RSpec.describe UsersController, type: :controller do
 
       it "redirect_to root_url" do
         expect(response).to redirect_to root_url
+      end
+    end
+
+    context "params type is invalid" do
+      let!(:user){FactoryBot.create :user}
+
+      before do
+        sign_in user
+        patch :update, params: {id: user, user: {"type_missing": "hacker"}}
+      end
+
+      it "render json type" do
+        expect(response.content_type).to eq "application/json"
+      end
+
+      it "render error" do
+        message = %({"message":"#{I18n.t('params_error')}"})
+        expect(response.body).to eq message
       end
     end
   end

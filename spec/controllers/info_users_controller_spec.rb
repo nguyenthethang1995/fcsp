@@ -13,10 +13,10 @@ RSpec.describe InfoUsersController, type: :controller do
     sign_in another_user
   end
 
-  describe "update" do
-    context "valid type phone and input_info_user", :sign_in_user do
-      before do
-        input_info_user_hash = {
+  describe "#update" do
+    context "params successfully", :sign_in_user do
+      let!(:input_info_user_hash) do
+        {
           gender: "female",
           relationship_status: "married",
           introduction: Faker::Lorem.sentence,
@@ -28,13 +28,22 @@ RSpec.describe InfoUsersController, type: :controller do
           occupation: FFaker::Job.title,
           country: FFaker::Address.city
         }
+      end
 
-        info_user_params = %i(introduction ambition quote address phone
+      let!(:info_user_params) do
+        %i(introduction ambition quote address phone
           relationship_status gender birthday occupation country).sample
+      end
 
+      before do
         patch :update, params: {id: info_user,
-          type: info_user_params,
-          input_info_user: input_info_user_hash[info_user_params]}
+          info_user: {"#{info_user_params}":
+          input_info_user_hash[info_user_params]}}
+      end
+
+      it "update successfully" do
+        expect(info_user.reload.try info_user_params)
+          .to eq input_info_user_hash[info_user_params]
       end
 
       it "response success" do
@@ -47,9 +56,30 @@ RSpec.describe InfoUsersController, type: :controller do
     end
 
     context "without signin" do
+      let!(:input_info_user_hash) do
+        {
+          gender: "female",
+          relationship_status: "married",
+          introduction: Faker::Lorem.sentence,
+          ambition: Faker::Lorem.sentence,
+          quote: Faker::Lorem.sentence,
+          address: FFaker::Lorem.sentence,
+          phone: FFaker::PhoneNumber.short_phone_number,
+          birthday: FFaker::Time.date,
+          occupation: FFaker::Job.title,
+          country: FFaker::Address.city
+        }
+      end
+
+      let!(:info_user_params) do
+        %i(introduction ambition quote address phone
+          relationship_status gender birthday occupation country).sample
+      end
+
       before do
-        patch :update, params: {id: info_user, type: "phone",
-          input_info_user: "01"}
+        patch :update, params: {id: info_user,
+          info_user: {"#{info_user_params}":
+          input_info_user_hash[info_user_params]}}
       end
 
       it "redirect to sign in page" do
@@ -72,21 +102,20 @@ RSpec.describe InfoUsersController, type: :controller do
       let(:old_ambition){info_user.ambition}
 
       before(:each, :max_quote) do
-        patch :update, params: {id: info_user, type: "quote",
-          input_info_user: FFaker::Lorem
-            .sentence(Settings.info_users.max_length_quote + 1)}
+        patch :update, params: {id: info_user,
+          info_user: {quote: FFaker::Lorem
+            .sentence(Settings.info_users.max_length_quote + 1)}}
       end
 
       before(:each, :max_introduction) do
-        patch :update, params: {id: info_user, type: "introduction",
-          input_info_user: FFaker::Lorem
-            .sentence(Settings.info_users.max_length_introduce + 1)}
+        patch :update, params: {id: info_user,
+          info_user: {introduction:
+          FFaker::Lorem.sentence(Settings.info_users.max_length_introduce + 1)}}
       end
 
       before(:each, :max_ambition) do
-        patch :update, params: {id: info_user, type: "ambition",
-          input_info_user: FFaker::Lorem
-            .sentence(Settings.info_users.max_length_ambition + 1)}
+        patch :update, params: {id: info_user, info_user: {ambition:
+          FFaker::Lorem.sentence(Settings.info_users.max_length_ambition + 1)}}
       end
 
       it "update failed with more max length quote", :max_quote do
@@ -117,6 +146,22 @@ RSpec.describe InfoUsersController, type: :controller do
       end
     end
 
+    context "params type is invalid", :sign_in_user do
+      before do
+        patch :update, params: {id: info_user,
+          info_user: {"type_missing": "hacker"}}
+      end
+
+      it "render json type" do
+        expect(response.content_type).to eq "application/json"
+      end
+
+      it "render error" do
+        message = %({"message":"#{I18n.t('params_error')}"})
+        expect(response.body).to eq message
+      end
+    end
+
     context "update with another user", :sign_in_another_user do
       before do
         patch :update, params: {id: info_user, type: "phone",
@@ -134,7 +179,7 @@ RSpec.describe InfoUsersController, type: :controller do
     end
   end
 
-  describe "index" do
+  describe "#index" do
     before(:each, :is_public_false) do
       get :index
     end

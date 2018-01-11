@@ -15,7 +15,7 @@
     <ul class="list-group">
       <% advance_profiles[:skills].each do |skill| %>
         <li class="list-group-item">
-          <span><%= skill.skill_name %></span>
+          <span><%= skill.skill_name.truncate Settings.truncate.skill_name %></span>
           <span class="pull-right">
             <%= format_skill_years skill.years %>
             <%= t ".years" %>
@@ -39,7 +39,7 @@
     <ul class="list-group">
       <% advance_profiles[:languages].each do |language| %>
         <li class="list-group-item">
-          <span><%= language.language_name %></span>
+          <span><%= language.language_name.truncate Settings.truncate.language_name %></span>
           <span class="pull-right"><%= language.level %></span>
         </li>
       <% end %>
@@ -54,7 +54,7 @@
   <% if advance_profiles[:schools].present? %>
     <ul class="list-group">
       <% advance_profiles[:schools].each do |school| %>
-        <li class="list-group-item"><%= school.name %></li>
+        <li class="list-group-item"><%= school.name.truncate Settings.truncate.school_name %></li>
       <% end %>
     </ul>
   <% else %>

@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_path
   end
 
+  rescue_from ActionController::ParameterMissing do |exception|
+    render json: {message: t("params_error")}
+  end
+
   def routing_error
     flash[:alert] = t "routing_error"
     redirect_to root_path

@@ -2,3 +2,4 @@ jp:
   page_error: "あなたはこのページにアクセスする許可がありません"
   model_not_found: "%{model} を見つかりません"
   routing_error: "あのページは利用できません"
+  params_error: "更新時に何かエラーが発生する"

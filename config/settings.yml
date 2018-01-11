@@ -303,3 +303,9 @@ truncate:
   task_name: 40
   task_description: 200
   course_description: 200
+  skill_name: 40
+  language_name: 40
+  school_name: 40
+  word:
+    course_name: 15
+    course_description: 25

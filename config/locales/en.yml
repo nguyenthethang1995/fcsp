@@ -1082,8 +1082,6 @@ en:
       social_profiles: "Connect with me"
       twitter: "Twitter"
       youtube: "Youtube"
-    update:
-      param_incorrect: "Update errot because param is incorrect. Check again!"
     user_certificate:
       add: "Add"
       certificate: "Certificates"
