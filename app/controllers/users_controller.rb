@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     @info_user = current_user.info_user
     @skill = Skill.new
     @skills = current_user.skill_users.includes :skill
+    @image = Image.new
   end
 
   def update

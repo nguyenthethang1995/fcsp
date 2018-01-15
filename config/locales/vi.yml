@@ -693,6 +693,8 @@ vi:
       synchronize_fail: "Đồng bộ không thành công, vui lòng thử lại sau"
       synchronize_success: "Đồng bộ thành công"
   user_avatars:
+    if_you_dont_want: "Nếu bạn không muốn thay đổi ảnh, làm ơn bấm vào nút đóng."
+    you_didnt_choose: "Bạn chưa chọn ảnh"
     create:
       fail: "Cập nhật ảnh đại diện thất bại"
       success: "Đã cập nhật ảnh đại diện thành công!"

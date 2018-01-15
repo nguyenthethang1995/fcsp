@@ -1,33 +1,41 @@
 class UserCoversController < ApplicationController
   before_action :authenticate_user!
-  load_resource :image, through: :current_user, parent: false, only: :update
 
   def create
-    create_cover
-    redirect_to user_path current_user
+    if params[:image].blank?
+      flash[:danger] = t "user_avatars.you_didnt_choose"
+      redirect_to edit_user_path current_user
+    else
+      image = current_user.images.build cover_params
+
+      if image.save && current_user.update(cover_image_id: image.id)
+        flash[:success] = t ".success"
+        redirect_to user_path current_user
+      else
+        flash[:danger] = t ".fail"
+        redirect_to edit_user_path current_user
+      end
+    end
   end
 
   def update
-    update_cover
-    redirect_to user_path current_user
+    if params[:image][:picture].blank?
+      flash[:danger] = t "user_avatars.you_didnt_choose"
+      redirect_to edit_user_path current_user
+    else
+      if current_user.update cover_image_id: cover_params[:picture]
+        flash[:success] = t ".success"
+        redirect_to user_path current_user
+      else
+        flash[:danger] = t ".fail"
+        redirect_to edit_user_path current_user
+      end
+    end
   end
 
   private
 
-  def create_cover
-    image = current_user.images.build picture: params[:picture]
-    if image.save && current_user.update(cover_image_id: image.id)
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".fail"
-    end
-  end
-
-  def update_cover
-    if current_user.update cover_image_id: params[:image_id]
-      flash[:success] = t ".success"
-    else
-      flash[:danger] = t ".fail"
-    end
+  def cover_params
+    params.require(:image).permit :picture
   end
 end

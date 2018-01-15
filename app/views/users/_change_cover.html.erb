@@ -1,4 +1,4 @@
-<div class="modal fade" id="changeCoverModal" role="dialog">
+<div class="modal fade modal-image" id="changeCoverModal" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -10,10 +10,10 @@
         <div class="upload-user-cover">
           <%= load_user_cover user, class: "img-cover-upload img-upload" %>
         </div>
-        <%= form_tag user_covers_path, id: "form-create-cover", multipart: true do %>
+        <%= form_for @image, url: user_covers_path, multipart: true do |f| %>
           <div class="row">
             <div class="col-md-6">
-              <%= file_field_tag :picture, accept: "image/png, image/jpg, image/jpeg",
+              <%= f.file_field :picture, accept: "image/png, image/jpg, image/jpeg",
                 class: "btn btn-default change-image form-control" %>
             </div>
             <div class="col-md-6">
@@ -22,17 +22,22 @@
             </div>
           </div>
         <% end %>
-        <%= form_tag user_covers_path, method: :patch, multipart: true,
-          id: "form-update-cover" do %>
+        <%= form_for @image, url: user_covers_path, method: :patch,
+          multipart: true, html: {id: "edit_image"} do |f| %>
           <div class="album-image">
-            <%= hidden_field_tag :image_id, "", class: "user-old-image" %>
-            <%= render "users/album_image", user: user %>
+            <%= f.hidden_field :picture, class: "user-old-image" %>
+            <% if user.images.present? %>
+              <%= render partial: "album_image", collection: user.images,
+                as: :image, locals: {user: user} %>
+            <% else %>
+              <p><%= t ".no_image" %></p>
+            <% end %>
           </div>
         <% end %>
       </div>
 
       <div class="modal-footer">
-        <%= button_tag t(".save"), class: "btn btn-primary btn-submit-cover" %>
+        <%= button_tag t(".save"), class: "btn btn-primary btn-create-image" %>
         <button type="button" class="btn btn-default" data-dismiss="modal">
           <%= t ".close" %>
         </button>

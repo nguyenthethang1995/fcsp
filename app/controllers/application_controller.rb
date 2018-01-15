@@ -115,4 +115,12 @@ class ApplicationController < ActionController::Base
     end
     resource
   end
+
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      redirect_to root_path, alert: I18n.t("devise.failure.unauthenticated")
+    end
+  end
 end
