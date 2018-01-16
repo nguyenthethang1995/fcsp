@@ -1,5 +1,0 @@
-<% if info_user.instance_of? ActiveSupport::TimeWithZone %>
-  <%= l @info_user.birthday, format: :format_date_eng %>
-<% else %>
-  <%= info_user %>
-<% end %>

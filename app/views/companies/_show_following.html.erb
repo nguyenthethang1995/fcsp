@@ -1,7 +1,0 @@
-<% @following.each do |following| %>
-  <div class="company-following-user col-md-4">
-    <%= link_to load_user_avatar(following), user_path(following),
-      class: "img-circle trainee-avatar" %>
-    <%= link_to following.name, user_path(following) %>
-  </div>
-<% end %>
