@@ -1,9 +1,6 @@
 class Job < ApplicationRecord
   acts_as_paranoid
 
-  include Concerns::CheckPostTime
-  include JobShare
-
   after_create :send_posting_job_mail
 
   belongs_to :company
