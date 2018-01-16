@@ -1,7 +1,0 @@
-<% if @company.following? trainee %>
-  <%= link_to t(".unfollow"), unfollow_employer_company_trainee_path(@company, trainee),
-    id: "follow-trainee", method: :delete, class: "btn btn-success btn-xs" %>
-<% else %>
-  <%= link_to t(".follow"), follow_employer_company_trainee_path(@company, trainee),
-    id: "follow-trainee", method: :post, class: "btn btn-success btn-xs" %>
-<% end %>

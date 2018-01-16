@@ -51,7 +51,7 @@ $(document).ready(function() {
   });
 
   function checkDateTime(date) {
-    return ((new Date(date)).toString() !== I18n.t('setting.profiles.invalid_date'));
+    return !isNaN(Date.parse(date)) && !(date != (new Date(date)).toISOString().substr(0,10));
   }
 
   $('body').on('click', '.edit-toggle', function(){
