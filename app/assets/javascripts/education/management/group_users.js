@@ -111,8 +111,4 @@ $(document).ready(function(){
     $(checkbox).prop('checked', !$(checkbox).prop('checked'));
     $(checkbox).trigger('change');
   });
-
-  $(document).on('click', 'tbody.unadded-userapp/assets/javascripts/ckeditor.js tr td input', {}, function(event){
-    event.stopPropagation();
-  });
 });
