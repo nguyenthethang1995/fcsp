@@ -26,31 +26,8 @@ module ApplicationHelper
     Devise.mappings[:user]
   end
 
-  def resource_class
-    devise_mapping.to
-  end
-
   def is_warning_flash? message_type
     message_type == Settings.warning
-  end
-
-  def request_friends
-    if current_user && user_signed_in?
-      current_user.requested_friends.includes :avatar
-    end
-  end
-
-  def check_show_newfeed? user
-  end
-
-  def link_to_add_fields name, form, options = {}
-    new_object = form.object.class
-      .reflect_on_association(options[:association]).klass.new
-    fields = fields_factory form, options[:association], new_object
-    link_to name, "javascript:void(0)",
-      onclick: h("add_fields(this, \"#{options[:association]}\",
-      \"#{escape_javascript(fields)}\")"),
-      class: options[:class], title: options[:title]
   end
 
   def is_notice_flash? message_type
@@ -58,13 +35,6 @@ module ApplicationHelper
   end
 
   private
-
-  def fields_factory form, association, object
-    form.fields_for(association, object,
-      child_index: "new_#{association}") do |builder|
-      render association.to_s.singularize + "_fields", form: builder
-    end
-  end
 
   def format_time time, format
     I18n.l time, format: format if time

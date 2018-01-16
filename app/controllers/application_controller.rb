@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :rack_mini_profiler_authorize_request, :set_locale, :shared_jobs,
-    :shared_posts
+  before_action :rack_mini_profiler_authorize_request, :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :store_location
 
@@ -54,23 +53,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def shared_jobs
-    @shared_job_ids = current_user.shares.pluck(:shareable_id) if user_signed_in?
-  end
-
-  def render_js message, status
-    @render = Supports::UserWorkRender.new message, status
-    respond_to do |format|
-      format.js
-    end
-  end
-
-  def convert_string_to_date param
-    param.to_date
-  rescue
-    nil
-  end
-
   def authenticate_tms
     if cookies.signed[:authen_service]
       @user_token = cookies.signed[:authen_service]
@@ -82,10 +64,6 @@ class ApplicationController < ActionController::Base
         cookies.signed[:authen_service] = @user_token
       end
     end
-  end
-
-  def shared_posts
-    @shared_post_ids = current_user.share_posts.pluck(:shareable_id) if user_signed_in?
   end
 
   def show_conversations

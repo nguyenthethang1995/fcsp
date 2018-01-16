@@ -3,17 +3,6 @@ class InfoUsersController < ApplicationController
   before_action :find_info_user, only: %i(index update)
   before_action :check_valid_param_type, only: :update
 
-  def index
-    if @info_user.is_public?
-      change_permission_info false
-      flash[:success] = t ".profile_private"
-    else
-      change_permission_info true
-      flash[:success] = t ".profile_public"
-    end
-    redirect_to current_user
-  end
-
   def update
     if @info_user.update_attributes info_user_params
       type_update = info_user_params.keys.first
@@ -45,12 +34,5 @@ class InfoUsersController < ApplicationController
     return if @info_user
     flash[:danger] = t ".info_user_not_found"
     redirect_to root_url
-  end
-
-  def change_permission_info is_public
-    unless @info_user.update_attributes is_public: is_public
-      flash[:danger] = t ".update_fail"
-      redirect_to root_url
-    end
   end
 end
