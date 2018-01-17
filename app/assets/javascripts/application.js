@@ -39,7 +39,6 @@
 //= require employer/create_job
 //= require employer/edit_job
 //= require change_avatar_cover
-//= require ckeditor/init
 //= require certificates
 //= require search_friends
 //= require posts
