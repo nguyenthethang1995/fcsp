@@ -1,35 +1,35 @@
 <% if courses.present? %>
-<div class="right_col" role="main">
-  <div class="page-title">
-    <div class="row">
-      <div class="col-md-12 col-sm-12 col-xs-12">
-        <div class="x_panel">
-          <div class="x_content">
-            <section id ="courses" class="section-padding">
-              <div class="row">
-                <% courses.each do |course| %>
-                  <div class="col-md-4 padleft-right show-course">
-                    <%= link_to user_course_path(user.id, course.id),
-                      data: {"user-id": user.id, "course-id": course.id}, class: "course" do %>
-                        <%= image_tag check_language(course), class: "img-responsive" %>
-                        <span class="course-name">
-                          <%= course.name.truncate_words Settings.truncate.word.course_name %>
-                        </span>
-                    <% end %>
-                    <hr>
-                    <div class="course-description">
-                      <%= course.description.truncate_words Settings.truncate.word.course_description %>
+  <div class="right_col" role="main">
+    <div class="page-title">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="x_panel">
+            <div class="x_content">
+              <section id ="courses" class="section-padding">
+                <div class="row">
+                  <% courses.each do |course| %>
+                    <div class="col-md-4 padleft-right show-course">
+                      <%= link_to user_course_path(user.id, course.id),
+                        data: {"user-id": user.id, "course-id": course.id}, class: "course" do %>
+                          <%= image_tag check_language(course), class: "img-responsive" %>
+                          <span class="course-name">
+                            <%= course.name.truncate_words Settings.truncate.word.course_name %>
+                          </span>
+                      <% end %>
+                      <hr>
+                      <div class="course-description">
+                        <%= course.description.truncate_words Settings.truncate.word.course_description %>
+                      </div>
                     </div>
-                  </div>
-                <% end %>
-              </div>
-            </section>
+                  <% end %>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 <% else %>
   <%= t ".coming_soon" %>
 <% end %>
